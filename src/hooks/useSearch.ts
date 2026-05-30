@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { searchPixabay } from '../lib/pixabay'
+import { searchSerper } from '../lib/serper'
 import type { SearchItem } from '../types'
 
 interface UseSearchReturn {
@@ -25,15 +25,15 @@ export function useSearch(query: string): UseSearchReturn {
       setLoading(true)
       setError(null)
       try {
-        const hits = await searchPixabay(query)
+        const hits = await searchSerper(query)
         if (!cancelled) {
           setResults(
-            hits.map((h) => ({
-              id: String(h.id),
-              title: h.tags.split(',')[0].trim(),
-              thumbnail_url: h.webformatURL,
-              full_image_url: h.largeImageURL,
-              source_license: 'Pixabay License',
+            hits.map((h, i) => ({
+              id: `${i}-${h.imageUrl}`,
+              title: h.title,
+              thumbnail_url: h.thumbnailUrl,
+              full_image_url: h.imageUrl,
+              source_license: h.source,
             })),
           )
         }
