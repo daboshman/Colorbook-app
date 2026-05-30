@@ -11,7 +11,7 @@ interface SerperResponse {
   images: SerperImage[]
 }
 
-export async function searchSerper(query: string): Promise<SerperImage[]> {
+export async function searchSerper(query: string, page = 1): Promise<SerperImage[]> {
   const key = import.meta.env.VITE_SERPER_API_KEY
 
   const res = await fetch(API_URL, {
@@ -22,7 +22,8 @@ export async function searchSerper(query: string): Promise<SerperImage[]> {
     },
     body: JSON.stringify({
       q: `${query} coloring page`,
-      num: 24,
+      num: 100,
+      page,
     }),
   })
 
