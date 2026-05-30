@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Rounded square background -->
+  <rect width="64" height="64" rx="14" fill="#4338ca"/>
+
+  <!-- Pencil rotated 135° -->
+  <g transform="translate(32,32) rotate(135)">
+    <!-- Eraser -->
+    <rect x="-6" y="-22" width="12" height="6" rx="2" fill="#f87171"/>
+    <!-- Ferrule -->
+    <rect x="-6" y="-16" width="12" height="4" fill="#e5e7eb"/>
+    <!-- Body -->
+    <rect x="-6" y="-12" width="12" height="24" fill="#fbbf24"/>
+    <!-- Wood tip -->
+    <polygon points="-6,12 6,12 0,22" fill="#d97706"/>
+    <!-- Graphite point -->
+    <polygon points="-2,18 2,18 0,22" fill="#1f2937"/>
+    <!-- Shine -->
+    <rect x="-3" y="-10" width="3" height="20" rx="1.5" fill="white" opacity="0.25"/>
+  </g>
+</svg>
