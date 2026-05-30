@@ -3,12 +3,23 @@
 @tailwind utilities;
 
 @media print {
-  body > * {
+  /* Hide layout chrome */
+  header,
+  footer {
     display: none !important;
   }
 
+  /* Remove all spacing from layout containers so the image fills the page */
+  body,
+  #root,
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none !important;
+  }
+
+  /* Fill the whole printed page with the image */
   #print-area {
-    display: block !important;
     position: fixed !important;
     inset: 0 !important;
     width: 100vw !important;
@@ -16,6 +27,7 @@
     margin: 0 !important;
     padding: 0 !important;
     box-shadow: none !important;
+    max-width: none !important;
   }
 
   #print-area img {
